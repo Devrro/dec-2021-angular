@@ -2,5 +2,5 @@
   <H2>{{user.id}}</H2>
   <div>{{user.name}}</div>
   <div>{{user.email}}</div>
-<!--  <a [routerLink]="user" [state]="user"></a>-->
+  <a [routerLink]="['user-details', user.id]" [state]="{data:user}">DETAILS</a>
 </div>
