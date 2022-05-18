@@ -12,8 +12,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import {HomePageComponent} from './components/home-page/home-page.component';
 import {UserDetailComponent} from './components/user-detail/user-detail.component';
-import { CommentDetailsComponent } from './components/comment-details/comment-details.component';
-import { PostDetailsComponent } from './components/post-details/post-details.component';
+import {CommentDetailsComponent} from './components/comment-details/comment-details.component';
+import {PostDetailsComponent} from './components/post-details/post-details.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +37,20 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
       {
         path: 'user-page',
         component: UsersComponent,
-        children:[
-          {path:'user-details/:id',component:UserDetailComponent}
+        children: [
+          {path: 'user-details/:id', component: UserDetailComponent}
         ]
       },
-      {path:'comments-page',component: CommentsComponent,children:[{path: 'comment-details/:id', component: CommentDetailsComponent}]},
-      {path:'posts-page',component: PostsComponent}
+      {
+        path: 'comments-page',
+        component: CommentsComponent,
+        children: [{path: 'comment-details/:id', component: CommentDetailsComponent}]
+      },
+      {
+        path: 'posts-page',
+        component: PostsComponent,
+        children: [{path: 'post-details/:id', component: PostDetailsComponent}]
+      }
     ])
   ],
   providers: [],

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IComment} from "../../../models/IComment";
+import {IPosts} from "../../../models/IPosts";
 
 @Component({
   selector: 'app-post',
@@ -7,8 +7,8 @@ import {IComment} from "../../../models/IComment";
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-
-
+  @Input()
+  post: IPosts = {id:0,body:'',title:'', userId:0}
   constructor() { }
 
   ngOnInit(): void {

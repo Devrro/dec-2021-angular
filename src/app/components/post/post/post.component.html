@@ -1,1 +1,6 @@
-<div>comment</div>
+<div>
+  <div>{{post.id}}</div>
+  <div>{{post.userId}}</div>
+  <div>{{post.title}}</div>
+  <a [routerLink]="['post-details', post.id]" [state]="{data:post}">DETAILS</a>
+</div>

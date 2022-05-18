@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-post-details',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostDetailsComponent implements OnInit {
 
-  constructor() { }
+  post_body: object = {body:''}
+
+  constructor(private ac: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
+    this.ac.params.subscribe(value => {
+      let {state: {data}} = history
+      this.post_body = data.body
+      console.log(this.post_body);
+    })
   }
 
 }
