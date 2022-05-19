@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {PostService} from "../../services/post.service";
+import {IPosts} from "../../models/IPosts";
 
 @Component({
   selector: 'app-post-details',
@@ -8,16 +10,28 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class PostDetailsComponent implements OnInit {
 
-  post_body: object = {body:''}
+  post_body: string = ''
 
-  constructor(private ac: ActivatedRoute) {
+  constructor(
+    private ac: ActivatedRoute,
+    private postService:PostService,
+
+  ) {
   }
 
   ngOnInit(): void {
-    this.ac.params.subscribe(value => {
-      let {state: {data}} = history
-      this.post_body = data.body
-      console.log(this.post_body);
+    this.ac.params.subscribe(({id}) => {
+        let {state: {data}} = history
+      if(data){
+        this.post_body = data.body
+        console.log(this.post_body);
+      } else{
+        this.postService.getPostsId(id).subscribe(({body}) => {
+           this.post_body = body
+         }
+       )
+
+      }
     })
   }
 
