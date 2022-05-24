@@ -1,0 +1,9 @@
+.userPost{
+  height: 300px;
+  width: 300px;
+  padding: 10px;
+  background: #9AADBF;
+  box-sizing: border-box;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px 1px #6D98BA;
+}

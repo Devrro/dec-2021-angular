@@ -1,0 +1,12 @@
+<div class="user">
+  <div>
+    <h4>{{user.id}}</h4>
+    <h5>{{user.username}}</h5>
+    <h5>{{user.name}}</h5>
+    <p>{{user.email}}</p>
+  </div>
+  <div>
+    <a [routerLink]="['user',user.id,user.username]" [state]="user">Details</a>
+    <a [routerLink]="['user',user.id,'posts',user.username]" [state]="user"> User posts</a>
+  </div>
+</div>

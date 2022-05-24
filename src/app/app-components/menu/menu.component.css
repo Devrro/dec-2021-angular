@@ -1,0 +1,8 @@
+.menu{
+  display: flex;
+  justify-content: space-evenly;
+}
+.menu>li{
+  display: flex;
+  list-style: none;
+}

@@ -1,0 +1,7 @@
+<div>
+  <div>{{post.id}}</div>
+  <div>{{post.userId}}</div>
+  <div>{{post.title}}</div>
+  <div>{{post.body}}</div>
+  <a [routerLink]="['post', post.id]" [state]="post">Details</a>
+</div>
