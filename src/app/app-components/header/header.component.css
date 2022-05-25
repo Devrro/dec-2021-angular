@@ -1,0 +1,16 @@
+.container{
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background-color: #125699;
+}
+
+a{
+  user-select: none;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0 25px;
+  color: #ffffff;
+}

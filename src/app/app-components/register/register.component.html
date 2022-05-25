@@ -1,0 +1,7 @@
+<form [formGroup]="form">
+  <div><label>Username:<input type="text" formControlName="username"></label></div>
+  <div><label>Password:<input type="text" formControlName="password"></label></div>
+  <div><label>Confirm:<input type="text" formControlName="confirm"></label></div>
+  <span *ngIf="form.errors">Passwords are not matching</span>
+  <button [disabled]="form.invalid" (click)="register()">REGISTER</button>
+</form>
