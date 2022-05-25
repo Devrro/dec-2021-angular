@@ -22,9 +22,9 @@ export class PostDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.ac.params.subscribe(({id}) => {
-      if (history.state.post) {
+      if ('id' in history.state) {
         this.post = history.state
-        this.router.navigate([this.post.id],{relativeTo:this.ac}).then(()=>{})
+        // this.router.navigate([this.post.id],{relativeTo:this.ac}).then(()=>{})
       } else {
         this.postService.getPostById(id).subscribe(value => this.post = value)
       }

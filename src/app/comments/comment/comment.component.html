@@ -1,0 +1,8 @@
+<div>
+  <p>{{comment.id}}</p>
+  <p>{{comment.postId}}</p>
+  <p>{{comment.name}}</p>
+  <p>{{comment.email}}</p>
+  <p>{{comment.body}}</p>
+  <a [routerLink]="[comment.id,'post']" [state]="comment">details</a>
+</div>
