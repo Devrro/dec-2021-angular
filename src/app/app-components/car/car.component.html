@@ -1,1 +1,7 @@
-<p>car works!</p>
+<div class="car">
+  {{car.id}}
+  {{car.model}}
+  {{car.price}}
+  {{car.year}}
+  <button (click)="deleteById(car.id)">Delete car</button>
+</div>

@@ -6,6 +6,8 @@ import {LoginComponent} from "./app-components/login/login.component";
 import {RegisterComponent} from "./app-components/register/register.component";
 import {CarsComponent} from "./app-components/cars/cars.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import {AuthService} from "./services";
+import {HttpClientModule} from "@angular/common/http";
 
 const routes:Routes = [
   {path:'',
@@ -23,8 +25,10 @@ const routes:Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
     ReactiveFormsModule
   ],
+  providers:[AuthService],
   exports:[CommonModule,RouterModule,ReactiveFormsModule]
 })
 export class AppRoutingModule { }

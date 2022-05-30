@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import {AuthService} from "../../services";
+import {Router} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-register',
@@ -10,8 +13,9 @@ export class RegisterComponent implements OnInit {
 
 //@ts-ignore
   form: FormGroup;
+  userNameError: String = '';
 
-  constructor() {
+  constructor(private authService: AuthService, private router: Router) {
     this._createForm()
   }
 
@@ -27,7 +31,17 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    console.log(this.form)
+    let rawValue = this.form.getRawValue();
+    delete rawValue.confirm;
+    this.authService.register(rawValue).subscribe({
+        next: () => {
+          this.router.navigate(['login']).then()
+        },
+        error: e => {
+          this.userNameError = e.error.username[0]
+        }
+      }
+    )
   }
 
   _checkPasswords(form: AbstractControl): ValidationErrors | null {
